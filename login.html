@@ -1,0 +1,153 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="stytleLogin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+   <div class="sign-up">
+       <h1> Sign Up</h1>
+       <form>
+           <input type="email"  class="input-box" placeholder="Your Email"><br>
+           <br>
+           <input type="password" class="input-box" placeholder="password">
+           <p><span><input type="checkbox"></span> I agrre to terms and condition </p>
+           <button type="button" class="sign-button" id="login">Login with google</button>
+           <hr>
+           <p class="or">OR</p>
+           <button type="button" class="sign-button">Login with Number</button>
+           <p>do you have an account? <a href=""><b style="color:rgb(255, 238, 0)">Login</b> </a></p>
+
+
+       </form>
+   </div>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+    import {getAuth , GoogleAuthProvider , signInWithRedirect ,  getRedirectResult} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js" ;
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyB96nuorVGAj50MO1YugjekPkHdjTHmI5U",
+      authDomain: "mystore-authentication.firebaseapp.com",
+      projectId: "mystore-authentication",
+      storageBucket: "mystore-authentication.appspot.com",
+      messagingSenderId: "440936617487",
+      appId: "1:440936617487:web:7567841801d1f15cabb57a"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const provider = new GoogleAuthProvider(app);
+    const auth = getAuth(app);
+
+    login.addEventListener('click',(e)=>{
+        signInWithRedirect(auth, provider);
+
+        getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+
+
+    });
+  </script>
+</html> -->
+
+<!-- ///////////////////////////////new  page /////////// -->
+
+
+
+
+
+     <!-- ----------------------New code-------=== -->
+
+     <!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> Login|| MystoreShopping</title>
+  <head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head><link rel="stylesheet" href="./styleLogin.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section class="forms-section">
+  <h1 class="section-title"><b>MystoreShopping</b></h1>
+  <div class="forms">
+    <div class="form-wrapper is-active">
+      <button type="button" class="switcher switcher-login">
+        Login
+        <span class="underline"></span>
+      </button>
+      <form class="form form-login">
+        <fieldset>
+          <legend>Please, enter your email and password for login.</legend>
+          <div class="input-block">
+            <label for="login-email">E-mail</label>
+            <input id="login-email" type="email" required>
+          </div>
+          <div class="input-block">
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" required>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn-login">Login</button>
+      </form>
+    </div>
+    <div class="form-wrapper">
+      <button type="button" class="switcher switcher-signup">
+        Sign Up
+        <span class="underline"></span>
+      </button>
+      <form class="form form-signup">
+        <fieldset>
+          <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+          <div class="input-block">
+            <label for="signup-email">E-mail</label>
+            <input id="signup-email" type="email" required>
+          </div>
+          <div class="input-block">
+            <label for="signup-password">Password</label>
+            <input id="signup-password" type="password" required>
+          </div>
+          <div class="input-block">
+            <label for="signup-password-confirm">Confirm password</label>
+            <input id="signup-password-confirm" type="password" required>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn-signup">Continue</button>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- partial -->
+  <script  src="login.js"></script>
+
+</body>
+</html>
